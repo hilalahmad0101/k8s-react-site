@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-service
+  namespace: react-site
+  labels:
+    app: react-site
+spec:
+  selector:
+    app: react-site
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+  namespace: react-site
+  labels:
+    app: react-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-site
+  template:
+    metadata:
+      labels:
+        app: react-site
+    spec:
+      containers:
+        - name: react-site-container
+          image: registry.gitlab.com/hilal.ahmad.developer-group/react-simple-site:latest
+          ports:
+            - containerPort: 80 
